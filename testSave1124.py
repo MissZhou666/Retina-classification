@@ -8,10 +8,10 @@ from tensorflow.python.platform import gfile
 BOTTLENECK_TENSOR_SIZE=2048
 BOTTLENECK_TENSOR_NAME='pool_3/_reshape:0'
 JPEG_DATA_TENSOR_NAME='DecodeJpeg/contents:0'
-MODEL_DIR='/home/zyj/testSave/model'
+MODEL_DIR='./model'
 MODEL_FILE='classify_image_graph_def.pb'
-CACHE_DIR='/home/zyj/testSave/tmp/bottleneck'
-INPUT_DATA='/home/zyj/testSave/pic'
+CACHE_DIR='./tmp/bottleneck'
+INPUT_DATA='./pic'
 VALIDATION_PERCENTAGE=10
 TEST_PERCENTAGE=10
 LEARNING_RATE=0.01
@@ -144,7 +144,7 @@ def main(_):
 			test_accuracy=sess.run(evaluation_step,feed_dict={bottleneck_input:test_bottlenecks,ground_truth_input:test_ground_truth})
 			print('final test accuracy=%.1f%%'% (test_accuracy*100))
 		saver=tf.train.Saver()
-		saver.save(sess,'./model1124/net1124.ckpt')
+		saver.save(sess,'./model1122/net1124.ckpt')
 if __name__=='__main__':
 	tf.app.run()
 
